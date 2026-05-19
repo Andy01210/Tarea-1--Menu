@@ -9,7 +9,7 @@ public class Tarea1{
         int op = 0;
         while(op != 11){
             System.out.println("Elija la opcion que desea realizar: \n 1.Calculadora\n 2.Numero par o impar \n 3.Tabla de multiplicar\n 4.Contador de vocales\n" +
-            " 5.promedio de notas\n 6.Clase Estudiante\n 7. Cuenta Bancaria\n 8.Herencia vehiculo\n 9.Matriz 3x2\n 10.SistemaBasico de inventario\n 11.Salir del menu"
+            " 5.promedio de notas\n 6.Clase Estudiante\n 7. Cuenta Bancaria\n 8.Herencia vehiculo\n 9.Matriz 3x2\n 10.Sistema Basico de inventario\n 11.Salir del menu"
             );
             op = leer.nextInt();
             switch (op){
@@ -123,7 +123,18 @@ public class Tarea1{
                     nuevo.Llenar();
                     Cls();
                     break;
-
+                case 7:
+                    CuentaBancaria cuenta = new CuentaBancaria("Andy", 5000);
+                    cuenta.EntrarDinero(2000);
+                    cuenta.SacarDinero(3000);
+                    Cls();
+                    break;
+                case 8:
+                    Guagua guagua = new Guagua("Toyota", "Hilux", "Blanca");
+                    guagua.ImprimirGuagua();
+                    Cls();
+                    break;
+                        
                 case 9:
                     int [][] matriz = new int[3][3];
                         for(int i = 0; i < 3; i++){
@@ -143,6 +154,35 @@ public class Tarea1{
                         }
                         Cls();
                         break; 
+                case 10:
+                int opInv = 0;
+                Inventario inv = new Inventario();
+                do{
+                     System.out.println(" 1.Agregar Producto \n 2.Mostrar inventario \n 3. Salir");
+                    opInv = leer.nextInt();
+                    leer.nextLine();
+                switch(opInv){
+                    
+                    case 1:
+                        System.out.println("Ingrese el nombre del producto");
+                        String Nombre = leer.nextLine();
+                        System.out.println("ingrese la cantidad de producto");
+                        int Cant = leer.nextInt();
+                        leer.nextLine();
+                        inv.AgregarProducto(Nombre, Cant);
+                        Cls();
+                        break;
+                    case 2:
+                        System.out.println("los productos ingresados fueron:");
+                        inv.Imprimir();
+                        Cls();
+                        break;   
+                    case 3:
+                        System.out.println("Ha salido correctamente");
+                        Cls();
+                        break;
+                }}
+                while(opInv != 3);
                 case 11:
                     System.out.println("Gracias por participar");
                     break;
@@ -161,8 +201,7 @@ public class Tarea1{
 static void pausa(){
     System.out.println("\n\nPresione Enter para continuar");
     leer.nextLine(); 
-    leer.nextLine();
-     
+    
 
 }
 static void Cls(){
